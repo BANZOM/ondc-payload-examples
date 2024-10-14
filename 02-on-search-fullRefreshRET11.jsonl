@@ -1,0 +1,1310 @@
+{
+  "context": {
+    "domain": "ONDC:RET11",
+    "country": "IND",
+    "city": "std:080",
+    "action": "on_search",
+    "core_version": "1.2.0",
+    "bap_id": "buyerNP.com",
+    "bap_uri": "https://buyerNP.com/ondc",
+    "bpp_id": "sellerNP.com",
+    "bpp_uri": "https://sellerNP.com/ondc",
+    "transaction_id": "T1", // same as the transaction_id in the request
+    "message_id": "M1", // same as the message_id in the request
+    "timestamp": "2023-06-03T08:00:30.000Z"
+  },
+  "message": {
+    "catalog": {
+      // bpp/providers.fulfillments - at provider (seller) level;
+      // bpp/fulfillments - at NP level;
+      // id & type should be same;
+      "bpp/fulfillments": [
+        {
+          "id": "1",
+          "type": "Delivery"
+        },
+        {
+          "id": "2",
+          "type": "Self-Pickup"
+        },
+        {
+          "id": "3",
+          "type": "Delivery and Self-Pickup"
+        }
+      ],
+      "bpp/descriptor": {
+        "name": "Seller NP",
+        "symbol": "https://sellerNP.com/images/np.png",
+        "short_desc": "Seller Marketplace",
+        "long_desc": "Seller Marketplace",
+        "images": [
+          "https://sellerNP.com/images/np.png"
+        ],
+        "tags": [
+          {
+            "code": "bpp_terms",
+            "list": [
+              {
+                "code": "np_type",
+                "value": "ISN" // ISN - Inventory Seller Network || MSN - Marketplace Seller Network
+              },
+              {
+                "code": "accept_bap_terms",
+                "value": "Y"
+              },
+              {
+                "code": "collect_payment", // Optional: if NP wants to collect payment
+                "value": "Y"
+              }
+            ]
+          }
+        ]
+      },
+      "bpp/providers": [
+        {
+          "id": "P1",
+          "time": {
+            "label": "enable", // disable to soft delete the provider from BPP
+            "timestamp": "2023-06-03T07:00:00.000Z"
+            //  timestamp when the snapshot for this provider (including provider details, items) was generated, 
+            // must be <= Context.timestamp. Buyer NPs can use this to determine from when to start incremental refresh;
+          },
+          "fulfillments": [
+            {
+              "id": "F1",
+              "type": "Delivery",
+              "contact": {
+                "phone": "9886098860",
+                // if merchant is in multiple locations, this will be the contact detail for merchant and contact detail for the storefront 
+                // specific location will be in fulfillment.start;
+                "email": "abc@xyz.com"
+              }
+            },
+            {
+              "id": "F2",
+              "type": "Self-Pickup",
+              "contact": {
+                "phone": "9886098860",
+                "email": "abc@xyz.com"
+              }
+            },
+            {
+              "id": "F3",
+              "type": "Buyer-Delivery",
+              "contact": {
+                "phone": "9886098860",
+                "email": "abc@xyz.com"
+              }
+            }
+          ],
+          "descriptor": {
+            "name": "Store 1",
+            "symbol": "https://sellerNP.com/images/store1.png",
+            "short_desc": "Store 1",
+            "long_desc": "Store 1",
+            "images": [
+              "https://sellerNP.com/images/store1.png"
+            ]
+          },
+          "@ondc/org/fssai_license_no": "12345678901234", // FSSAI License number of the provider is required for F&B items i.e RET11
+          "ttl": "P1D", // validity of this catalog for this provider
+          "locations": [
+            {
+              "id": "L1",
+              "time": {
+                "label": "enable",
+                // enable: default
+                // disable: to soft delete the location; serviceability update for the store should not be a part of the catalog;
+                // close: temporary closure of store with the same format for time.range as specified
+                // open: reopening of store when the store was previously closed for an indefinite time
+                "timestamp": "2023-06-03T07:30:30.000Z",
+                "days": "1,2,3,4,5,6,7",
+                "schedule": {
+                  "holidays": [
+                    "2023-08-15" // list of future dated holidays, to be used as per holiday calendar; if no holidays, empty array needs to be passed;
+                  ],
+                  "frequency": "PT4H",
+                  "times": [
+                    "1100",
+                    "1900"
+                  ]
+                },
+                "range": {
+                  "start": "1100",
+                  "end": "2100"
+                }
+              },
+              "gps": "12.967555,77.749666",
+              "address": {
+                "locality": "Jayanagar",
+                "street": "Jayanagar 4th Block",
+                "city": "Bengaluru",
+                "area_code": "560076",
+                "state": "KA"
+              },
+              "circle": {
+                "gps": "12.967555,77.749666",
+                "radius": {
+                  "unit": "km",
+                  "value": "3"
+                }
+              }
+            }
+          ],
+          "categories": [
+            {
+              "id": "5", // unique id for custom category (across customization group, custom menu, variant group); alphanumeric & up to 12 characters;
+              "parent_category_id": "",
+              "descriptor": {
+                "name": "Pizza",
+                "short_desc": "Veg and Non-Veg pizza",
+                "long_desc": "American and Italian Veg and Non-Veg Pizza",
+                "images": [  // optional
+                  "https://sellerNP.com/ondc/m005.png"
+                ]
+              },
+              "tags": [
+                {
+                  "code": "type",
+                  "list": [
+                    {
+                      "code": "type",
+                      "value": "custom_menu"  //  enum - "custom_menu", "custom_group", "variant_group";
+                    }
+                  ]
+                },
+                {
+                  "code": "timing",  // optional
+                  "list": [
+                    {
+                      "code": "day_from",
+                      "value": "1" // valid value - day of week ("1" - Monday, "7" - Sunday);
+                    },
+                    {
+                      "code": "day_to",
+                      "value": "5"
+                    },
+                    {
+                      "code": "time_from",
+                      "value": "1800" // 24 hour format
+                    },
+                    {
+                      "code": "time_to",
+                      "value": "2200"
+                    }
+                  ]
+                },
+                {
+                  "code": "display", // preferred display rank for custom menu item, above example means preference is to display in rank 3 of the custom menu;
+                  "list": [
+                    {
+                      "code": "rank",
+                      "value": "3"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "CG1",
+              "descriptor": {
+                "name": "Crust (any 1 option)"
+              },
+              "tags": [
+                {
+                  "code": "type",
+                  "list": [
+                    {
+                      "code": "type",
+                      "value": "custom_group"
+                    }
+                  ]
+                },
+                {
+                  "code": "config", // customization group definition including id, name, min / max, input type, sequence of display;
+                  "list": [
+                    {
+                      "code": "min",
+                      "value": "1"
+                    },
+                    {
+                      "code": "max",
+                      "value": "1"
+                    },
+                    {
+                      "code": "input",
+                      "value": "select" // input type for customization group, enum: "select" (selection by buyer from available customizations based on min/max), "text" (text entered by buyer e.g. for engraving);
+                    },
+                    {
+                      "code": "seq",
+                      "value": "1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "CG2",
+              "descriptor": {
+                "name": "Size (any 1 option)"
+              },
+              "tags": [
+                {
+                  "code": "type",
+                  "list": [
+                    {
+                      "code": "type",
+                      "value": "custom_group"
+                    }
+                  ]
+                },
+                {
+                  "code": "config",
+                  "list": [
+                    {
+                      "code": "min",
+                      "value": "1"
+                    },
+                    {
+                      "code": "max",
+                      "value": "1"
+                    },
+                    {
+                      "code": "input",
+                      "value": "select"
+                    },
+                    {
+                      "code": "seq",
+                      "value": "2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "CG3",
+              "descriptor": {
+                "name": "Toppings (up to 2 options)"
+              },
+              "tags": [
+                {
+                  "code": "type",
+                  "list": [
+                    {
+                      "code": "type",
+                      "value": "custom_group"
+                    }
+                  ]
+                },
+                {
+                  "code": "config",
+                  "list": [
+                    {
+                      "code": "min",
+                      "value": "0"
+                    },
+                    {
+                      "code": "max",
+                      "value": "2"
+                    },
+                    {
+                      "code": "input",
+                      "value": "select"
+                    },
+                    {
+                      "code": "seq",
+                      "value": "3"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "items": [
+            {
+              "id": "I1",
+              "time": {
+                "label": "enable",
+                "timestamp": "2023-06-03T07:30:00.000Z"
+              },
+              "descriptor": {
+                "name": "Farmhouse Pizza",
+                "symbol": "https://sellerNP.com/images/i1.png",
+                "short_desc": "Farmhouse Pizza",
+                "long_desc": "Farmhouse Pizza",
+                "images": [
+                  "https://sellerNP.com/images/i1.png"
+                ]
+              },
+              "quantity": {
+                "unitized": {
+                  "measure": {
+                    "unit": "unit", // enum - "unit", "dozen", "kilogram", "tonne", "litre", "millilitre" 
+                    "value": "1"
+                  }
+                },
+                "available": {
+                  "count": "99" // default value for item in stock;
+                },
+                "maximum": {
+                  "count": "99" // cap per order
+                }
+              },
+              "price": {
+                "currency": "INR",
+                "value": "269.0", // in case value for base item is 0 (for item with customizations), BNPs should check for mandatory customization group(s) and default customization for each group and add this for displaying on the item listing page
+                "maximum_value": "269.0",
+                "tags": [ // (optional) upper & lower price range, for product created using this base item & customizations, for display on the store listing page;
+                  {
+                    "code": "range",
+                    "list": [
+                      {
+                        "code": "lower",
+                        "value": "269.00"
+                      },
+                      {
+                        "code": "upper",
+                        "value": "304.00"
+                      }
+                    ]
+                  },
+                  {
+                    "code": "default_selection", // price for default selection - may be used for display only when base item has price of 0 and SNP has created default selection using the base item and one or more customizations;
+                    "list": [
+                      {
+                        "code": "value",
+                        "value": "269.00" // selling price
+                      },
+                      {
+                        "code": "maximum_value",
+                        "value": "290.00" // MRP
+                      }
+                    ]
+                  }
+                ]
+              },
+              "category_id": "F&B", // item category from this list and used by buyer NPs to categorize on CLP; if seller NPs enter "F&B", buyer NPs can use their own intelligence to show the grouping;
+              "category_ids": [
+                "5:1" // "custom menu item id:display sequence within custom menu item"
+
+                // item assigned to custom menu, can only be assigned to child menu item (if there is a parent menu item) or the root menu item; defined in this format - "custom menu item id:display sequence within custom menu item", in this case, "Farm House Pizza" is displayed at the top when menu item for id 5 ("Pizza") is clicked. If custom menu item id is not found or invalid, buyer NP may decide to show this item under the parent menu item id (in case of parent->child menu item) or delink this item from the custom menu (however, the item will still be visible on the item listing for the provider or through other modes of discovery);
+
+              ],
+              "fulfillment_id": "F1", // default fulfillment type
+              "location_id": "L1",
+              "related": false,
+              "recommended": true,
+              "@ondc/org/returnable": false,
+              "@ondc/org/cancellable": false,
+              "@ondc/org/return_window": "PT1H",
+              "@ondc/org/seller_pickup_return": false, // whether seller is responsible for pick up of item for return;
+              "@ondc/org/time_to_ship": "PT45M",
+              "@ondc/org/available_on_cod": false,
+              "@ondc/org/contact_details_consumer_care": "Ramesh,ramesh@abc.com,18004254444",
+              "tags": [
+                {
+                  "code": "type", // required only for items that can be configured using customizations;
+                  "list": [
+                    {
+                      "code": "type",
+                      "value": "item"  // enum - "item", "dynamic_item", "customization";
+                    }
+                  ]
+                },
+                {
+                  "code": "custom_group",  // customization group directly linked to the base item;
+                  "list": [
+                    {
+                      "code": "id",
+                      "value": "CG1"
+                    }
+                  ]
+                },
+                {
+                  "code": "config",  // if overridden for this item, else default from customization group;
+                  "list": [
+                    {
+                      "code": "id",
+                      "value": "CG1"
+                    },
+                    {
+                      "code": "min",
+                      "value": "1"
+                    },
+                    {
+                      "code": "max",
+                      "value": "1"
+                    },
+                    {
+                      "code": "seq",
+                      "value": "1"
+                    }
+                  ]
+                },
+                {
+                  "code": "timing",  // item availability timing (optional); if seperate timing for diff. days then multiple tags with same code;
+                  "list": [
+                    {
+                      "code": "day_from",
+                      "value": "1"
+                    },
+                    {
+                      "code": "day_to",
+                      "value": "5"
+                    },
+                    {
+                      "code": "time_from",
+                      "value": "1800"
+                    },
+                    {
+                      "code": "time_to",
+                      "value": "2200"
+                    }
+                  ]
+                },
+                {
+                  "code": "veg_nonveg",
+                  "list": [
+                    {
+                      "code": "veg",  // enum - "veg", "non_veg", "egg";
+                      "value": "yes"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "C1",
+              "descriptor": {
+                "name": "New Hand Tossed"
+              },
+              "quantity": {
+                "available": {
+                  "count": "99"
+                },
+                "maximum": {
+                  "count": "99"
+                }
+              },
+              "price": {
+                "currency": "INR",
+                "value": "0.0",
+                "maximum_value": "0.0"
+              },
+              "category_id": "F&B",
+              "related": true,
+              "tags": [
+                {
+                  "code": "type",
+                  "list": [
+                    {
+                      "code": "type",
+                      "value": "customization"  // enum - "customization", "dynamic_item", "item" (base item or SKU);
+                    }
+                  ]
+                },
+                {
+                  "code": "parent",  // identifies customization group(s) to which this customization belongs
+                  "list": [
+                    {
+                      "code": "id",
+                      "value": "CG1"
+                    },
+                    {
+                      "code": "default",
+                      "value": "yes"
+                    }
+                  ]
+                },
+                {
+                  "code": "child",  // nested customization group(s);
+                  "list": [
+                    {
+                      "code": "id",
+                      "value": "CG2"
+                    }
+                  ]
+                },
+                {
+                  "code": "veg_nonveg",
+                  "list": [
+                    {
+                      "code": "veg",
+                      "value": "yes"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "C2",
+              "descriptor": {
+                "name": "Regular"
+              },
+              "quantity": {
+                "available": {
+                  "count": "99"
+                },
+                "maximum": {
+                  "count": "99"
+                }
+              },
+              "price": {
+                "currency": "INR",
+                "value": "0.0",
+                "maximum_value": "0.0"
+              },
+              "category_id": "F&B",
+              "related": true,
+              "tags": [
+                {
+                  "code": "type",
+                  "list": [
+                    {
+                      "code": "type",
+                      "value": "customization"
+                    }
+                  ]
+                },
+                {
+                  "code": "parent",
+                  "list": [
+                    {
+                      "code": "id",
+                      "value": "CG2"
+                    },
+                    {
+                      "code": "default",
+                      "value": "yes"
+                    }
+                  ]
+                },
+                {
+                  "code": "child",
+                  "list": [
+                    {
+                      "code": "id",
+                      "value": "CG3"
+                    }
+                  ]
+                },
+                {
+                  "code": "veg_nonveg",
+                  "list": [
+                    {
+                      "code": "veg",
+                      "value": "yes"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "C3",
+              "descriptor": {
+                "name": "Grilled Mushrooms"
+              },
+              "quantity": {
+                "available": {
+                  "count": "99"
+                },
+                "maximum": {
+                  "count": "99"
+                }
+              },
+              "price": {
+                "currency": "INR",
+                "value": "35.0",
+                "maximum_value": "35.0"
+              },
+              "category_id": "F&B",
+              "related": true,
+              "tags": [
+                {
+                  "code": "type",
+                  "list": [
+                    {
+                      "code": "type",
+                      "value": "customization"
+                    }
+                  ]
+                },
+                {
+                  "code": "parent",
+                  "list": [
+                    {
+                      "code": "id",
+                      "value": "CG3"
+                    },
+                    {
+                      "code": "default",
+                      "value": "yes"
+                    }
+                  ]
+                },
+                {
+                  "code": "veg_nonveg",
+                  "list": [
+                    {
+                      "code": "veg",
+                      "value": "yes"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "offers": [
+            {
+              "id": "DISCP60",
+              "descriptor": {
+                "code": "discount",
+                "images": [  // optional
+                  "https://sellerNP.com/images/offer2-banner.png"
+                ]
+              },
+              "location_ids": [
+                "L1"
+              ],
+              "item_ids": [
+                "I1"
+              ],
+              "time": {
+                "label": "valid",
+                "range": {
+                  "start": "2023-06-21T16:00:00.000Z",
+                  "end": "2023-06-21T23:00:00.000Z"
+                }
+              },
+              "tags": [
+                {
+                  "code": "qualifier",
+                  "list": [
+                    {
+                      "code": "min_value",
+                      "value": "159"
+                    }
+                  ]
+                },
+                {
+                  "code": "benefit",
+                  "list": [
+                    {
+                      "code": "value_type",
+                      "value": "percent"
+                    },
+                    {
+                      "code": "value",
+                      "value": "-60.00"
+                    },
+                    {
+                      "code": "value_cap",
+                      "value": "-120.00"
+                    }
+                  ]
+                },
+                {
+                  "code": "meta",
+                  "list": [
+                    {
+                      "code": "additive",  // whether this offer can be applied in addition to other offers;
+                      "value": "no"
+                    },
+                    {
+                      "code": "auto",  // whether this offer is auto-applied as part of cart quote
+                      "value": "yes"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "FLAT150",
+              "descriptor": {
+                "code": "discount",
+                "images": [
+                  "https://sellerNP.com/images/offer2-banner.png"
+                ]
+              },
+              "location_ids": [
+                "L1"
+              ],
+              "item_ids": [
+                "I1"
+              ],
+              "time": {
+                "label": "valid",
+                "range": {
+                  "start": "2023-06-22T16:00:00.000Z",
+                  "end": "2023-06-22T23:00:00.000Z"
+                }
+              },
+              "tags": [
+                {
+                  "code": "qualifier",
+                  "list": [
+                    {
+                      "code": "min_value",
+                      "value": "499.00"
+                    }
+                  ]
+                },
+                {
+                  "code": "benefit",
+                  "list": [
+                    {
+                      "code": "value_type",
+                      "value": "amount"
+                    },
+                    {
+                      "code": "value",
+                      "value": "-150.00"
+                    }
+                  ]
+                },
+                {
+                  "code": "meta",
+                  "list": [
+                    {
+                      "code": "additive",
+                      "value": "no"
+                    },
+                    {
+                      "code": "auto",
+                      "value": "yes"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "BUY2GET3",
+              "descriptor": {
+                "code": "buyXgetY",
+                "images": [
+                  "https://sellerNP.com/images/offer1-banner.png"
+                ]
+              },
+              "location_ids": [
+                "L1"
+              ],
+              "item_ids": [
+                "I1"
+              ],
+              "time": {
+                "label": "valid",
+                "range": {
+                  "start": "2023-06-23T16:00:00.000Z",
+                  "end": "2023-06-23T23:00:00.000Z"
+                }
+              },
+              "tags": [
+                {
+                  "code": "qualifier",
+                  "list": [
+                    {
+                      "code": "item_count",
+                      "value": "2"
+                    }
+                  ]
+                },
+                {
+                  "code": "benefit",
+                  "list": [
+                    {
+                      "code": "item_id",
+                      "value": "I1"
+                    },
+                    {
+                      "code": "item_count",
+                      "value": "3"
+                    }
+                  ]
+                },
+                {
+                  "code": "meta",
+                  "list": [
+                    {
+                      "code": "additive",
+                      "value": "no"
+                    },
+                    {
+                      "code": "auto",
+                      "value": "yes"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "FREEBIE",
+              "descriptor": {
+                "code": "freebie",
+                "images": [
+                  "https://sellerNP.com/images/offer3-banner.png"
+                ]
+              },
+              "location_ids": [
+                "L1"
+              ],
+              "item_ids": [
+                "I1"
+              ],
+              "time": {
+                "label": "valid",
+                "range": {
+                  "start": "2023-06-24T16:00:00.000Z",
+                  "end": "2023-06-24T23:00:00.000Z"
+                }
+              },
+              "tags": [
+                {
+                  "code": "qualifier",
+                  "list": [
+                    {
+                      "code": "min_value",
+                      "value": "598.00"
+                    }
+                  ]
+                },
+                {
+                  "code": "benefit",
+                  "list": [
+                    {
+                      "code": "item_count",
+                      "value": "1"
+                    },
+                    {
+                      "code": "item_id",
+                      "value": "item id for extra item" // item id for the freebie item
+                    },
+                    {
+                      "code": "item_value",
+                      "value": "200.00"
+                    }
+                  ]
+                },
+                {
+                  "code": "meta",
+                  "list": [
+                    {
+                      "code": "additive",
+                      "value": "no"
+                    },
+                    {
+                      "code": "auto",
+                      "value": "yes"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "tags": [
+            {
+              "code": "order_value",  // for defining order value (e.g. min order value) for provider
+              "list": [
+                {
+                  "code": "min_value",
+                  "value": "300.00"
+                }
+              ]
+            },
+            {
+              "code": "catalog_link",  // optional, for catalog refresh using link or inline (default)
+              "list": [
+                {
+                  "code": "type",
+                  "value": "inline" // enum - "inline", "link";
+                },
+                {
+                  "code": "type_value",  // req for catalog refresh using link; dont include if type is inline
+                  "value": "https://s3.amazon.com/xjhjsfsdfs/s-12349.zip"
+                },
+                {
+                  "code": "type_validity",
+                  "value": "PT24H"  // validity of the link
+                },
+                {
+                  "code": "last_update",
+                  "value": "2023-05-21T00:00:00:000Z"  // timestamp of last update of link content
+                }
+              ]
+            },
+            {
+              "code": "timing",
+              "list": [
+                {
+                  "code": "type",
+                  "value": "Order"  // enum - "Order" (online order processing timings), "Self-Pickup", "Delivery" (order shipment timings, will be same as delivery timings for hyperlocal), "All" (same timing for all fulfillments supported by seller);
+                },
+                {
+                  "code": "location",
+                  "value": "L1"
+                },
+                {
+                  "code": "day_from",
+                  "value": "1"
+                },
+                {
+                  "code": "day_to",
+                  "value": "5"
+                },
+                {
+                  "code": "time_from",
+                  "value": "0900"
+                },
+                {
+                  "code": "time_to",
+                  "value": "1100"
+                }
+              ]
+            },
+            {
+              "code": "timing",
+              "list": [
+                {
+                  "code": "type",
+                  "value": "Order"
+                },
+                {
+                  "code": "location",
+                  "value": "L1"
+                },
+                {
+                  "code": "day_from",
+                  "value": "1"
+                },
+                {
+                  "code": "day_to",
+                  "value": "5"
+                },
+                {
+                  "code": "time_from",
+                  "value": "1300"
+                },
+                {
+                  "code": "time_to",
+                  "value": "1530"
+                }
+              ]
+            },
+            {
+              "code": "timing",
+              "list": [
+                {
+                  "code": "type",
+                  "value": "Order"
+                },
+                {
+                  "code": "location",
+                  "value": "L1"
+                },
+                {
+                  "code": "day_from",
+                  "value": "1"
+                },
+                {
+                  "code": "day_to",
+                  "value": "5"
+                },
+                {
+                  "code": "time_from",
+                  "value": "1830"
+                },
+                {
+                  "code": "time_to",
+                  "value": "2130"
+                }
+              ]
+            },
+            {
+              "code": "timing",
+              "list": [
+                {
+                  "code": "type",
+                  "value": "Order"
+                },
+                {
+                  "code": "location",
+                  "value": "L1"
+                },
+                {
+                  "code": "day_from",
+                  "value": "6"
+                },
+                {
+                  "code": "day_to",
+                  "value": "7"
+                },
+                {
+                  "code": "time_from",
+                  "value": "1300"
+                },
+                {
+                  "code": "time_to",
+                  "value": "1600"
+                }
+              ]
+            },
+            {
+              "code": "timing",
+              "list": [
+                {
+                  "code": "type",
+                  "value": "Order"
+                },
+                {
+                  "code": "location",
+                  "value": "L1"
+                },
+                {
+                  "code": "day_from",
+                  "value": "6"
+                },
+                {
+                  "code": "day_to",
+                  "value": "7"
+                },
+                {
+                  "code": "time_from",
+                  "value": "1900"
+                },
+                {
+                  "code": "time_to",
+                  "value": "2300"
+                }
+              ]
+            },
+            {
+              "code": "timing",
+              "list": [
+                {
+                  "code": "type",
+                  "value": "Self-Pickup"
+                },
+                {
+                  "code": "location",
+                  "value": "L1"
+                },
+                {
+                  "code": "day_from",
+                  "value": "1"
+                },
+                {
+                  "code": "day_to",
+                  "value": "7"
+                },
+                {
+                  "code": "time_from",
+                  "value": "1100"
+                },
+                {
+                  "code": "time_to",
+                  "value": "2000"
+                }
+              ]
+            },
+            {
+              "code": "timing",
+              "list": [
+                {
+                  "code": "type",
+                  "value": "Delivery"
+                },
+                {
+                  "code": "location",
+                  "value": "L1"
+                },
+                {
+                  "code": "day_from",
+                  "value": "1"
+                },
+                {
+                  "code": "day_to",
+                  "value": "7"
+                },
+                {
+                  "code": "time_from",
+                  "value": "1100"
+                },
+                {
+                  "code": "time_to",
+                  "value": "2200"
+                }
+              ]
+            },
+            {
+              "code": "close_timing",  // optional - may be provided if store close timing was earlier provided but the store info is being updated thru full refresh;
+              "list": [
+                {
+                  "code": "location",
+                  "value": "L1"
+                },
+                {
+                  "code": "start",
+                  "value": "2023-06-03T16:00:00.000Z"
+                },
+                {
+                  "code": "end",  // optional
+                  "value": "2023-06-03T23:59:00.000Z"
+                }
+              ]
+            },
+            {
+              "code": "serviceability", // serviceability construct is defined for (provider+location+category) at either of these levels -  hyperlocal (radius) or intercity (pincodes) or pan-India or polygon; every unique combination of (provider+location+category) can have serviceability defined only at one of these levels;
+              "list": [
+                {
+                  "code": "location",
+                  "value": "L1"
+                },
+                {
+                  "code": "category",
+                  "value": "F&B"
+                },
+                {
+                  "code": "type",
+                  "value": "10" // // enum - "10" (hyperlocal), "11" (intercity), "12" (pan-India), "13" (polygon);
+                },
+                {
+                  "code": "val",
+                  "value": "3" 
+                },
+                {
+                  "code": "unit",
+                  "value": "km"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+
+// /on_search responses may be paginated by provider, i.e. separate /on_search response per provider with the same transaction_id and message_id as /search;
+
+/*
+Hyperlocal Serviceability:
+"tags":
+          [
+            {
+              "code":"serviceability",
+              "list":
+              [
+                {
+                  "code":"location",
+                  "value":"abc-store-location-id-1"
+                },
+                {
+                  "code":"category",
+                  "value":"Eggs, Meat & Fish"
+                },
+                {
+                  "code":"type",
+                  "value":"10"
+                },
+                {
+                  "code":"val",
+                  "value":"5"
+                },
+                {
+                  "code":"unit",
+                  "value":"km"
+                }
+              ]
+            },
+            {
+              "code":"serviceability",
+              "list":
+              [
+                {
+                  "code":"location",
+                  "value":"abc-store-location-id-1"
+                },
+                {
+                  "code":"category",
+                  "value":"Bakery, Cakes & Dairy"
+                },
+                {
+                  "code":"type",
+                  "value":"10"
+                },
+                {
+                  "code":"val",
+                  "value":"3"
+                },
+                {
+                  "code":"unit",
+                  "value":"km"
+                }
+              ]
+*/
+
+/*
+Intercity Serviceability:
+"tags":
+          [
+            {
+              "code":"serviceability",
+              "list":
+              [
+                {
+                  "code":"location",
+                  "value":"abc-store-location-id-1"
+                },
+                {
+                  "code":"category",
+                  "value":"Gourmet & World Foods"
+                },
+                {
+                  "code":"type",
+                  "value":"11"
+                },
+                {
+                  "code":"val",
+                  "value":"560001-560076,560083"
+                },
+                {
+                  "code":"unit",
+                  "value":"pincode"
+                }
+              ]
+
+            }
+          ]
+*/
+
+/*
+Pan-India Serviceability:
+"tags":
+          [
+            {
+              "code":"serviceability",
+              "list":
+              [
+                {
+                  "code":"location",
+                  "value":"abc-store-location-id-1"
+                },
+                {
+                  "code":"category",
+                  "value":"Kitchen Accessories"
+                },
+                {
+                  "code":"type",
+                  "value":"12"
+                },
+                {
+                  "code":"val",
+                  "value":"IND"
+                },
+                {
+                  "code":"unit",
+                  "value":"country"
+                }
+              ]
+            }
+          ]
+*/
