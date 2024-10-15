@@ -392,7 +392,7 @@
 
               ],
               "fulfillment_id": "F1", // default fulfillment type
-              "location_id": "L1",
+              "location_id": "L1",  // ?? What if user has L2 as their location?
               "related": false,
               "recommended": true,
               "@ondc/org/returnable": false,
@@ -667,7 +667,7 @@
               "location_ids": [
                 "L1"
               ],
-              "item_ids": [
+              "item_ids": [  // optional; if specified, offer is applicable only on these items;
                 "I1"
               ],
               "time": {
