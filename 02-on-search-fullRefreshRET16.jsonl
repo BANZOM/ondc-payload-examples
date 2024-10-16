@@ -181,7 +181,7 @@
               "location_id": "L1",
               "@ondc/org/returnable": true,
               "@ondc/org/cancellable": true,
-              "@ondc/org/return_window": "PT1H",
+              "@ondc/org/return_window": "PT1H",  // as per CPA, every product is by defn returnable; hence, you need to pass the appropriate return window
               "@ondc/org/seller_pickup_return": true,
               "@ondc/org/time_to_ship": "PT45M",
               "@ondc/org/available_on_cod": false,
@@ -216,7 +216,7 @@
                   ]
                 },
                 {
-                  "code": "attribute",
+                  "code": "attribute",  // item attributes defined from 'Category Taxonmy' (mapping of attributes to keys e.g "Brand" => "brand") - populating with valid values will enable better discoverability on buyer NPs, suggestive enums from 'Category Taxonmy'
                   "list": [
                     {
                       "code": "brand",
@@ -235,7 +235,7 @@
               ]
             }
           ],
-          "creds": [
+          "creds": [  // credentials for provider (optional);
             {
               "id": "ESG-12345678",
               "descriptor": {
@@ -243,7 +243,7 @@
                 "short_desc": "ESG-12345678-FF",
                 "name": "Dun & Bradstreet ESG Badge No."
               },
-              "url": "https://abcd.cdn.com/images/badge-img",
+              "url": "https://abcd.cdn.com/images/badge-img",  // optional
               "tags": [
                 {
                   "code": "verification",
@@ -257,7 +257,7 @@
                       "value": "2023-06-03T00:00:00:000Z"
                     },
                     {
-                      "code": "valid_to",
+                      "code": "valid_to",  // optional
                       "value": "2024-06-03T23:59:59:999Z"
                     }
                   ]
@@ -283,7 +283,7 @@
                   "value": "inline"
                 },
                 {
-                  "code": "type_value",
+                  "code": "type_value",  // if type is link, then provide the URL
                   "value": "https://s3.amazon.com/x-12349.zip"
                 },
                 {
@@ -396,7 +396,7 @@
                 },
                 {
                   "code": "type",
-                  "value": "12"
+                  "value": "12"  // enum - "10" (hyperlocal), "11" (intercity), "12" (pan-India);
                 },
                 {
                   "code": "val",
