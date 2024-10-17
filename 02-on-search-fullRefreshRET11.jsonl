@@ -155,7 +155,7 @@
           "categories": [
             {
               "id": "5", // unique id for custom category (across customization group, custom menu, variant group); alphanumeric & up to 12 characters;
-              "parent_category_id": "",
+              "parent_category_id": "",  // Used for variant group if defined else empty;
               "descriptor": {
                 "name": "Pizza",
                 "short_desc": "Veg and Non-Veg pizza",
