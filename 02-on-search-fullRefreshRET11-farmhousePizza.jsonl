@@ -449,7 +449,7 @@
                 "currency": "INR",
                 "value": "269.0",
                 "maximum_value": "269.0",
-                "tags": [
+                "tags": [  // (optional) upper & lower price range, for product created using this base item & customizations, for display on the store listing page;
                   {
                     "code": "range",
                     "list": [
@@ -467,7 +467,7 @@
               },
               "category_id": "F&B",
               "category_ids": [
-                "5:1"
+                "5:1"  // "custom menu item id:display sequence within custom menu item", For more: check RET11 base payload
               ],
               "fulfillment_id": "F1",
               "location_id": "L1",
@@ -638,7 +638,7 @@
                       "value": "CG1"
                     },
                     {
-                      "code": "default",
+                      "code": "default", // default = no is optional
                       "value": "no"
                     }
                   ]
