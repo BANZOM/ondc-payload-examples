@@ -31,15 +31,15 @@
             "list": [
               {
                 "code": "np_type",
-                "value": "MSN"
+                "value": "MSN"  // enum: ISN, MSN
               },
               {
                 "code": "accept_bap_terms",
                 "value": "Y"
               },
               {
-                "code": "collect_payment",
-                "value": "Y"
+                "code": "collect_payment",  // Optional: if seller wants to collect payment
+                "value": "Y"  // enum: Y, N
               }
             ]
           }
@@ -50,7 +50,7 @@
           "id": "P1",
           "time": {
             "label": "enable",
-            "timestamp": "2023-06-03T08:00:30.000Z"
+            "timestamp": "2023-06-03T08:00:30.000Z"  // timestamp when the snapshot for this provider was generated. Buyer NPs can use this to determine from when to start incremental refresh;
           },
           "fulfillments": [
             {
@@ -76,8 +76,8 @@
             {
               "id": "L1",
               "time": {
-                "label": "enable",
-                "timestamp": "2023-06-03T07:30:30.000Z",
+                "label": "enable",  // enum: enable, disable (soft delete), close (temporarily unavailable), open (reopening when previously closed) 
+                "timestamp": "2023-06-03T07:30:30.000Z",  // timestamp when the snapshot for this location was generated. must be <= Context.timestamp. 
                 "days": "1,2,3,4,5,6,7",
                 "schedule": {
                   "holidays": [
@@ -160,13 +160,13 @@
             {
               "id": "I1",
               "time": {
-                "label": "enable",
-                "timestamp": "2023-06-03T07:30:00.000Z"
+                "label": "enable", // enum - "enable", "disable"
+                "timestamp": "2023-06-03T07:30:00.000Z"  // timestamp for item event;
               },
-              "parent_item_id": "V1",
+              "parent_item_id": "V1",  // if variant grouping defined for provider above, this matches id for variant_group definition; if not defined or id is invalid, buyer NPs may choose to display as normal SKU item
               "descriptor": {
                 "name": "Allen Solly Men T-shirt",
-                "code": "4:XXXXXXXX",
+                "code": "4:XXXXXXXX",  // network-wide unique code for item which will be in this format - "type:code" where type is 1 - EAN, 2 - ISBN, 3 - GTIN, 4 - HSN, 5 - others;
                 "symbol": "https://sellerNP.com/images/i1.png",
                 "short_desc": "Allen Solly Men T-shirt",
                 "long_desc": "Allen Solly Men T-shirt",
@@ -193,7 +193,7 @@
                 "value": "579.00",
                 "maximum_value": "999.0"
               },
-              "category_id": "T Shirts",
+              "category_id": "T Shirts",  // list of category_ids is defined in Category Taxonomy Sheet
               "fulfillment_id": "F1",
               "location_id": "L1",
               "@ondc/org/returnable": true,
@@ -203,7 +203,7 @@
               "@ondc/org/time_to_ship": "P1D",
               "@ondc/org/available_on_cod": false,
               "@ondc/org/contact_details_consumer_care": "Ramesh,ramesh@abc.com,18004254444",
-              "@ondc/org/statutory_reqs_packaged_commodities": {
+              "@ondc/org/statutory_reqs_packaged_commodities": {  // attributes for category defined in Category Taxonomy Sheet
                 "manufacturer_or_packer_name": "Aditya Birla Fashion & Retail Ltd",
                 "manufacturer_or_packer_address": "Building 2, Divyasree Technopolis, Off HAL Airport Road, Bengaluru-560037",
                 "common_or_generic_name_of_commodity": "Polo",
@@ -220,7 +220,7 @@
                   ]
                 },
                 {
-                  "code": "attribute",
+                  "code": "attribute",  // Suggestive enums: https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/README.md
                   "list": [
                     {
                       "code": "gender",
@@ -228,11 +228,11 @@
                     },
                     {
                       "code": "colour",
-                      "value": "#FF7F50"
+                      "value": "#FF7F50" // hex value for colour; in some cases, where hex code may not be available (e.g. black & white, pride), value can be optional;
                     },
                     {
                       "code": "colour_name",
-                      "value": "Coral"
+                      "value": "Coral"  // colour name needs to be provided if colour hex code specified; list defined in git repo: https://github.com/ONDC-Official/protocol-network-extension/blob/main/enums/retail/README.md
                     },
                     {
                       "code": "size",
@@ -813,7 +813,7 @@
               ]
             }
           ],
-          "creds": [
+          "creds": [  // optional
             {
               "id": "ESG-12345678",
               "descriptor": {
@@ -858,7 +858,7 @@
               "list": [
                 {
                   "code": "type",
-                  "value": "All"
+                  "value": "All"  // means same timings for online order processing, shipment, self-pickup (as applicable);
                 },
                 {
                   "code": "location",
@@ -895,7 +895,7 @@
                 },
                 {
                   "code": "type",
-                  "value": "12"
+                  "value": "12"  // PAN India
                 },
                 {
                   "code": "val",
