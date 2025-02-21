@@ -1,0 +1,64 @@
+Grocerry Specification:
+
+1. Bpp Fulfillment options 
+2. Bpp Description 
+3. Bpp providers (one at a time)
+    3.1. Bpp provider id
+    3.2. Bpp provider ratings
+    3.3. Bpp provider Fulfillment options
+    3.4. Bpp provider Description
+    3.5. Bpp provider locations
+    3.4. Bpp provider categories (future)
+    3.5. Bpp provider items
+        3.5.1. Bpp provider item id
+        3.5.2. Bpp provider item Description
+        3.5.3. Bpp provider item rating
+        3.5.4. Bpp provider item quantity
+        3.5.5. Bpp provider item price
+        3.5.6. Bpp provider item category_id
+        3.5.7. Bpp provider item Fulfillment id
+        3.5.8. Bpp provider item misc - returnable, cancellable, etc.
+        3.5.9. Bpp provider item tags
+    3.6. Bpp provider tags
+        3.6.1. Bpp provider tag timing
+        3.6.2. Bpp provider tag serviceablity
+
+-----------------
+Commerce store
+1. Fulfillments
+2. name
+3. symbol- image/thubnail
+
+Provider -> Store 
+1. id -> pk 
+2. Fulfillments -> id, name, contact(store phone, email)
+3. Description -> name, image, logo
+4. locations -> warehouse (id -> code, general (attributes))
+
+
+
+_______________---
+To be Indexed:
+store code (Store class - code)   --- done in point 17
+
+Items (PSU):
+1, id -> pk   --- done
+2. rating -> product Rating (psu.getSku().getRating())  --- done
+3. name -> sku name (psu.getSku().getName())  --- done
+4. code -> sku hsn code     --- done
+5. sku image  --- done
+6. unit -> OrderableUnit (psu.getOrderedUnit())   --- done
+7. unit value - unitValue from PSU class    --- done
+8. available stock -> from PSU class   --- done
+9. max. qut. -> from PSU class      --- done
+10. currency -> from PSU class ISO Code     --- done
+11. discount Price(value) -> from PSU class     --- done
+12. max value -> price from PSU class       --- done
+13. category_id -> psu.getSKU().getCategory().getName()     --- done
+14. location_id -> psu.getInventoryLocation().getWarehouse().getCode()
+15. @ondc/** -> psu.getSKU().get***..... (opt.)
+16. domain.code -> psu.getSKU().getCategory().getParentCategory().getCode()     --- done
+17. store.code -> psu.getSKU().getStore().getCode()  --- done
+18. country.code -> psu.getSKU().getStore() (opt.)
+
+-> provider level tags (to be discussed)
