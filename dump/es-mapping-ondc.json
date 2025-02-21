@@ -1,0 +1,85 @@
+{
+	"mappings": {
+		"properties": {
+			"id": {
+				"type": "keyword"
+			},
+			"rating": {
+				"type": "integer"
+			},
+			"name": {
+				"type": "text",
+				"fields": {
+					"keyword": {
+						"type": "keyword",
+						"ignore_above": 256
+					}
+				},
+				"analyzer": "standard"
+			},
+			"code": {
+				"type": "keyword"
+			},
+			"symbol": {
+				"type": "keyword"
+			},
+			"images": {
+				"type": "keyword"
+			},
+			"unit": {
+				"type": "keyword"
+			},
+			"unitValue": {
+				"type": "keyword"
+			},
+			"availableCount": {
+				"type": "integer"
+			},
+			"maximumCount": {
+				"type": "integer"
+			},
+			"currency": {
+				"type": "keyword"
+			},
+			"price": {
+				"type": "double"
+			},
+			"maxPrice": {
+				"type": "double"
+			},
+			"categoryId": {
+				"type": "keyword"
+			},
+			"locationId": {
+				"type": "keyword"
+			},
+			"returnable": {
+				"type": "boolean"
+			},
+			"cancellable": {
+				"type": "boolean"
+			},
+			"store": {
+				"type": "nested",
+				"properties": {
+					"code": {
+						"type": "keyword"
+					}
+				}
+			},
+			"domain": {
+				"type": "nested",
+				"properties": {
+					"code": {
+						"type": "keyword"
+					}
+				}
+			}
+		}
+	},
+	"settings": {
+		"index": {
+			"max_result_window": 50000
+		}
+	}
+}

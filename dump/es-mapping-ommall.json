@@ -1,0 +1,200 @@
+{
+    "mappings": {
+        "properties": {
+            "id": {
+                "type": "keyword"
+            },
+            "pk": {
+                "type": "keyword"
+            },
+            "Form": {
+                "type": "keyword"
+            },
+            "code": {
+                "type": "keyword"
+            },
+            "psus": {
+                "type": "nested",
+                "properties": {
+                    "id": {
+                        "type": "keyword"
+                    },
+                    "max": {
+                        "type": "integer"
+                    },
+                    "min": {
+                        "type": "integer"
+                    },
+                    "mrp": {
+                        "type": "double"
+                    },
+                    "unit": {
+                        "type": "keyword"
+                    },
+                    "price": {
+                        "type": "double"
+                    },
+                    "symbol": {
+                        "type": "keyword"
+                    },
+                    "instock": {
+                        "type": "boolean"
+                    },
+                    "currency": {
+                        "type": "keyword"
+                    }
+                }
+            },
+            "rank": {
+                "type": "integer"
+            },
+            "Cloth": {
+                "type": "keyword"
+            },
+            "Topic": {
+                "type": "keyword"
+            },
+            "Vocal": {
+                "type": "keyword"
+            },
+            "brand": {
+                "properties": {
+                    "id": {
+                        "type": "keyword"
+                    },
+                    "code": {
+                        "type": "keyword"
+                    },
+                    "name_en": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "type": "keyword",
+                                "ignore_above": 256
+                            }
+                        },
+                        "analyzer": "standard"
+                    }
+                }
+            },
+            "price": {
+                "type": "double"
+            },
+            "store": {
+                "properties": {
+                    "id": {
+                        "type": "keyword"
+                    },
+                    "code": {
+                        "type": "keyword"
+                    },
+                    "name": {
+                        "type": "keyword"
+                    }
+                }
+            },
+            "Author": {
+                "type": "keyword"
+            },
+            "rating": {
+                "type": "float"
+            },
+            "name_en": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                },
+                "analyzer": "standard"
+            },
+            "Language": {
+                "type": "keyword"
+            },
+            "Material": {
+                "type": "keyword"
+            },
+            "Producer": {
+                "type": "keyword"
+            },
+            "Quantity": {
+                "type": "keyword"
+            },
+            "category": {
+                "properties": {
+                    "id": {
+                        "type": "keyword"
+                    },
+                    "code": {
+                        "type": "keyword"
+                    },
+                    "name_en": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "type": "keyword",
+                                "ignore_above": 256
+                            }
+                        },
+                        "analyzer": "standard"
+                    }
+                }
+            },
+            "Publisher": {
+                "type": "keyword"
+            },
+            "groupings": {
+                "type": "nested",
+                "properties": {
+                    "id": {
+                        "type": "keyword"
+                    },
+                    "code": {
+                        "type": "keyword"
+                    },
+                    "name_en": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "type": "keyword",
+                                "ignore_above": 256
+                            }
+                        },
+                        "analyzer": "standard"
+                    }
+                }
+            },
+            "Music Type": {
+                "type": "keyword"
+            },
+            "summary_en": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                },
+                "analyzer": "standard"
+            },
+            "reviewCount": {
+                "type": "integer"
+            },
+            "Manufacturer": {
+                "type": "keyword"
+            },
+            "thumbnail_url": {
+                "type": "keyword"
+            },
+            "showOutOfStock": {
+                "type": "boolean"
+            }
+        }
+    },
+    "settings": {
+        "index": {
+            "max_result_window": 50000
+        }
+    }
+}
