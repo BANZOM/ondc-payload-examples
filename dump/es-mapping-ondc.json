@@ -60,7 +60,6 @@
 				"type": "boolean"
 			},
 			"store": {
-				"type": "nested",
 				"properties": {
 					"code": {
 						"type": "keyword"
