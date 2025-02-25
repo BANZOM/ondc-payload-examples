@@ -1,0 +1,105 @@
+{
+    "took": 2,
+    "timed_out": false,
+    "_shards": {
+        "failed": 0.0,
+        "successful": 1.0,
+        "total": 1.0,
+        "skipped": 0.0
+    },
+    "hits": {
+        "total": {
+            "relation": "eq",
+            "value": 19
+        },
+        "hits": [
+            {
+                "_index": "skuindex_a",
+                "_id": "2106",
+                "_score": 1.4604024,
+                "_type": "_doc",
+                "_source": "{symbol=https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/urlong/media/ryfrekiz-IMG_6769.jpg, availableCount=1000, images=[https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/urlong/media/njafyxiw-Black%20-%20White.jpg, https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/urlong/media/ryfrekiz-IMG_6769.jpg], hsnCode=4:09024010, maximumCount=10, store={code=urlong}, cancellable=false, unit=Piece, returnable=false, locationId=urlong-warehouse-1, domain={code=RET10}, name=Black Tea (Orthodox), currency=INR, id=2106, maxPrice=150.0, categoryId=Tea and Coffee, unitValue=1}"
+            },
+            {
+                "_index": "skuindex_a",
+                "_id": "2105",
+                "_score": 1.4604024,
+                "_type": "_doc",
+                "_source": "{symbol=https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/urlong/media/vgegvwib-IMG_6770.jpg, availableCount=1000, images=[https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/urlong/media/jkzlmyvz-Green%20-%20White.jpg, https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/urlong/media/vgegvwib-IMG_6770.jpg], hsnCode=4:09024040, maximumCount=10, store={code=urlong}, cancellable=false, unit=Piece, returnable=false, locationId=urlong-warehouse-1, domain={code=RET10}, name=Green Tea, currency=INR, id=2105, maxPrice=160.0, categoryId=Tea and Coffee, unitValue=1}"
+            },
+            {
+                "_index": "skuindex_a",
+                "_id": "2104",
+                "_score": 1.4604024,
+                "_type": "_doc",
+                "_source": "{symbol=https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/urlong/media/opvibjcz-IMG_6773.jpg, availableCount=1000, images=[https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/urlong/media/ijoossnw-Oolong%20-%20White.jpg, https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/urlong/media/opvibjcz-IMG_6773.jpg], hsnCode=4:09022090, maximumCount=10, store={code=urlong}, cancellable=false, unit=Piece, returnable=false, locationId=urlong-warehouse-1, domain={code=RET10}, name=Oolong Tea, currency=INR, id=2104, maxPrice=180.0, categoryId=Tea and Coffee, unitValue=1}"
+            },
+            {
+                "_index": "skuindex_a",
+                "_id": "2103",
+                "_score": 1.4604024,
+                "_type": "_doc",
+                "_source": "{symbol=https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/urlong/media/ypmkogqa-IMG_6772.jpg, availableCount=1000, images=[https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/urlong/media/fvcycpie-White%20-%20White.jpg, https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/urlong/media/ypmkogqa-IMG_6772.jpg], hsnCode=4:9024090, maximumCount=10, store={code=urlong}, cancellable=false, unit=Piece, returnable=false, locationId=urlong-warehouse-1, domain={code=RET10}, name=White Tea, currency=INR, id=2103, maxPrice=695.0, categoryId=Tea and Coffee, unitValue=1}"
+            },
+            {
+                "_index": "skuindex_a",
+                "_id": "2102",
+                "_score": 1.4604024,
+                "_type": "_doc",
+                "_source": "{symbol=https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/urlong/media/kfrxyhsp-IMG_6780.jpg, availableCount=1000, images=[https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/urlong/media/sruagdaa-mindful%20green%20-%20White.jpg, https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/urlong/media/kfrxyhsp-IMG_6780.jpg], hsnCode=4:2106909988, maximumCount=10, store={code=urlong}, cancellable=false, unit=Piece, returnable=false, locationId=urlong-warehouse-1, domain={code=RET10}, name=Mindful Green, currency=INR, id=2102, maxPrice=310.0, categoryId=Tea and Coffee, unitValue=1}"
+            },
+            {
+                "_index": "skuindex_a",
+                "_id": "2115",
+                "_score": 1.4604024,
+                "_type": "_doc",
+                "_source": "{symbol=https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/urlong/media/kyxrngki-_EB_0813.jpg, availableCount=1000, images=[https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/urlong/media/inyqzirr-Mandarin%20-%20White.jpg], hsnCode=4:2106909987, maximumCount=10, store={code=urlong}, cancellable=false, unit=Piece, returnable=false, locationId=urlong-warehouse-1, domain={code=RET10}, name=Mandarin Infusion, currency=INR, id=2115, maxPrice=310.0, categoryId=Tea and Coffee, unitValue=1}"
+            },
+            {
+                "_index": "skuindex_a",
+                "_id": "2101",
+                "_score": 1.4604024,
+                "_type": "_doc",
+                "_source": "{symbol=https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/urlong/media/oogqxyhd-_EB_0855.jpg, availableCount=1000, images=[https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/urlong/media/jrebwhmv-_EB_0673%20-%20Mountain%20herbs.jpg], hsnCode=4:2106909989, maximumCount=10, store={code=urlong}, cancellable=false, unit=Piece, returnable=false, locationId=urlong-warehouse-1, domain={code=RET10}, name=Mountain Herbs, currency=INR, id=2101, maxPrice=330.0, categoryId=Tea and Coffee, unitValue=1}"
+            },
+            {
+                "_index": "skuindex_a",
+                "_id": "2100",
+                "_score": 1.4604024,
+                "_type": "_doc",
+                "_source": "{symbol=https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/urlong/media/hshpdcsb-IMG_6779.jpg, availableCount=1000, images=[https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/urlong/media/dvsrfwrp-Roselle%20-%20White.jpg, https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/urlong/media/hshpdcsb-IMG_6779.jpg], hsnCode=4:2106909987, maximumCount=10, store={code=urlong}, cancellable=false, unit=Piece, returnable=false, locationId=urlong-warehouse-1, domain={code=RET10}, name=Rosella Infusion, currency=INR, id=2100, maxPrice=350.0, categoryId=Tea and Coffee, unitValue=1}"
+            },
+            {
+                "_index": "skuindex_a",
+                "_id": "2123",
+                "_score": 1.4604024,
+                "_type": "_doc",
+                "_source": "{symbol=https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/goli-soda/media/products/001050-1.png, availableCount=100, images=[https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/goli-soda/media/products/001050-1.png, https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/goli-soda/media/products/001050-2.png, https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/goli-soda/media/products/001050-3.png], hsnCode=4:34011942, maximumCount=10, store={code=goli-soda}, cancellable=false, unit=Piece, returnable=false, price=474.0, locationId=goli-soda-warehouse-1, domain={code=RET10}, name=Goli Soda All Natural Probiotics Stain Removing Laundry Bar (Pack Of 2), currency=INR, id=2123, maxPrice=500.0, categoryId=Detergents and Dishwash, unitValue=1}"
+            },
+            {
+                "_index": "skuindex_a",
+                "_id": "2122",
+                "_score": 1.4604024,
+                "_type": "_doc",
+                "_source": "{symbol=https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/goli-soda/media/products/001049-1.png, availableCount=100, images=[https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/goli-soda/media/products/001049-1.png, https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/goli-soda/media/products/001049-2.png, https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/goli-soda/media/products/001049-3.png], hsnCode=4:34011942, maximumCount=10, store={code=goli-soda}, cancellable=false, unit=Piece, returnable=false, price=235.0, locationId=goli-soda-warehouse-1, domain={code=RET10}, name=Goli Soda All Natural Probiotics Stain Removing Laundry Bar (Pack Of 1), currency=INR, id=2122, maxPrice=250.0, categoryId=Detergents and Dishwash, unitValue=1}"
+            }
+        ],
+        "max_score": 1.4604024
+    },
+    "aggregations": {
+        "sterms#store_counts": {
+            "buckets": [
+                {
+                    "doc_count": 11,
+                    "key": "goli-soda"
+                },
+                {
+                    "doc_count": 8,
+                    "key": "urlong"
+                }
+            ],
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 0
+        }
+    }
+}

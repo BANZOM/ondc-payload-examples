@@ -1,0 +1,46 @@
+{
+    "query": {
+        "bool": {
+            "must": [
+                {
+                    "nested": {
+                        "path": "domain",
+                        "query": {
+                            "term": {
+                                "domain.code": "%s"
+                            }
+                        }
+                    }
+                },
+                {
+                    "term": {
+                        "store.code": "%s"
+                    }
+                }
+            ]
+        }
+    }
+}
+
+
+
+{
+    "query": {
+        "nested": {
+            "path": "domain",
+            "query": {
+                "term": {
+                    "domain.code": "%s"
+                }
+            }
+        }
+    },
+    "aggs": {
+        "store_counts": {
+            "terms": {
+                "field": "store.code",
+                "size": 100
+            }
+        }
+    }
+}
