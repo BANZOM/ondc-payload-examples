@@ -1,0 +1,77 @@
+{
+    "@ondc/org/cancellable": false,
+    "@ondc/org/returnable": false,
+    "quantity": {
+        "available": {
+            "count": "1000"
+        },
+        "unitized": {
+            "measure": {
+                "value": "1",
+                "unit": "unit"
+            }
+        },
+        "maximum": {
+            "count": "10"
+        }
+    },
+    "@ondc/org/statutory_reqs_packaged_commodities": {
+        "common_or_generic_name_of_commodity": "Kumkumadi Oil (10 ml)",
+        "manufacturer_or_packer_name": "Bare Rituals",
+        "manufacturer_or_packer_address": "Tower-18, Flat No-202, BPTP Park Floors-2, Near Next Door Mall, Sector-76, Nimka (96)",
+        "month_year_of_manufacture_packing_import": "02/2025"
+    },
+    "rating": "1",
+    "@ondc/org/seller_pickup_return": true,
+    "@ondc/org/contact_details_consumer_care": "Kristeena Grover,hello@barerituals.in,9899684600",
+    "@ondc/org/time_to_ship": "PT45M",
+    "descriptor": {
+        "name": "Kumkumadi Oil (10 ml)",
+        "symbol": "https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/barerituals/media/products/001001/qgwmfwnh-Bare%20Rituals%20Kumkumadi%20Oil.jpg",
+        "images": [
+            "https://s3.ap-south-1.amazonaws.com/kakul-market/web/stores/barerituals/media/products/001001/qgwmfwnh-Bare%20Rituals%20Kumkumadi%20Oil.jpg"
+        ],
+        "code": "4:3004",
+        "short_desc": "<p>An essential beauty treatment mentioned the ancient Ayurvedic text of Astanga Hridyam, Kumkumadi Oil of Bare Rituals provides bright &amp; illuminated skin. A blend of finest Saffron from Kashmir, cold pressed oils, Goat's milk, Lotus essential oil, Rakt Chandanam, White Chandanam and Vetiver, Licorice, Manjishtha other 24 potent herbs, the dose of this daily potion help reducing the dark spots, pigmentation, and signs of aging.<\/p>",
+        "long_desc": "<p><strong>How to Use\t<\/strong><\/p><p>After cleansing and dampening your skin with rose water, take the appropriate amount &amp; apply it on the face. Massage gently into the skin. Add it to your daily nighttime skincare ritual.<\/p><p><br><\/p><p><strong>Ingredients\t<\/strong><\/p><p>Crocus Sativus(Kesar or saffron pollens), Berberis aristata (Daruhaldi), Pterocarpus santalinus (Red Sandalwood), Rubia cordifolia( Manjistha), Glycyrrhiza glabra (Licorice), Laccifer lacca (Lac/ Laksha), Nymphaea stellata (Lotus ), Nelumbo nucifera (Indian Lotus E.O.), Ficus benghalensis (Indian Banyan),&nbsp;Ficus Lacor (Pakar) , Vetiveria zizanioides (Ushira), Prunus cerasoides (Padmaka), Madhuca longifolia (Mahua), Caesalpinia sappan (Patanga),Nelumbo nucifera Stigmas (Kamal Keshara), Coscinium fenestratum (Kaliyaka), Neelotpala, Ficus benghalensis (Indian Banyan), Glycyrrhiza glabra (Licorice), Vetiver Root (Chrysopogon zizanioides), Acorus calamus (Vacha) , Mesua ferrea (Nag Keshara), Dashamoolas Extracts, Goat Milk, Cold pressed Sesame Oil, Rose Water, Prunus cerasoides (Padmaka) Extract<\/p>"
+    },
+    "store": {
+        "code": "barerituals"
+    },
+    "location_id": "barerituals-warehouse-1",
+    "fulfillment_id": "1",
+    "tags": [
+        {
+            "list": [
+                {
+                    "value": "IND",
+                    "code": "country"
+                }
+            ],
+            "code": "origin"
+        }
+    ],
+    "@ondc/org/return_window": "PT1H",
+    "@ondc/org/available_on_cod": false,
+    "@ondc/org/statutory_reqs_prepackaged_food": {
+        "importer_FSSAI_license_no": "",
+        "nutritional_info": "",
+        "brand_owner_FSSAI_license_no": "",
+        "additives_info": "",
+        "other_FSSAI_license_no": ""
+    },
+    "category_id": "Skin Care - Oils and Serums",
+    "price": {
+        "value": "650.00",
+        "currency": "INR",
+        "maximum_value": "650.00"
+    },
+    "domain": {
+        "code": "RET13"
+    },
+    "id": "12060",
+    "time": {
+        "label": "enable",
+        "timestamp": "2025-02-27T07:52:09.815Z"
+    }
+}

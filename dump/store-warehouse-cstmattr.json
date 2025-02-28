@@ -1,0 +1,31 @@
+{
+    "time": {
+        "days": "1,2,3,4,5,6,7",
+        "schedule": {
+            "holidays": [],
+            "frequency": "PT24H",
+            "times": [
+                "0000"
+            ]
+        },
+        "range": {
+            "start": "0000",
+            "end": "2359"
+        }
+    },
+    "gps": "13.0827,80.2707",
+    "address": {
+        "locality": "Dr.Radhakrishnan Salai",
+        "street": "Mylapore",
+        "city": "Chennai",
+        "area_code": "600004",
+        "state": "TN"
+    },
+    "circle": {
+        "gps": "13.0827,80.2707",
+        "radius": {
+            "unit": "km",
+            "value": "3"
+        }
+    }
+}
