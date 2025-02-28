@@ -22,6 +22,39 @@
     }
 }
 
+{
+    "query": {
+        "bool": {
+            "must": [
+                {
+                    "nested": {
+                        "path": "domain",
+                        "query": {
+                            "term": {
+                                "domain.code": "%s"
+                            }
+                        }
+                    }
+                },
+                {
+                    "term": {
+                        "store.code": "%s"
+                    }
+                },
+                {
+                    "term": {
+                        "category_id": "%s"
+                    }
+                },
+                {
+                    "match": {
+                        "descriptor.name": "%s"
+                    }
+                }
+            ]
+        }
+    }
+}
 
 
 {
